@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drug Coverage Finder</title>
+  </head>
+  <body>
+    <body>
+      <table style="border: 1px solid black">
+        <tbody>
+          <tr>
+            <th width="35%" style="background-color: #CCFFCC; margin: 5px">Drug</th>
+            <th style="background-color: #CCFFCC; margin: 5px">Carrier</th>
+            <th style="background-color: #CCFFCC; margin: 5px">Tier</th>
+          </tr>
+          {% for coverageItem in coverageItemList %}
+             <tr>
+               <td>{{ coverageItem['name'] }}</td>
+               <td>{{ coverageItem['carrier'] }}</td>
+               <td>{{ coverageItem['tier'] }}</td>
+             </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+        <div class="Bottom">
+            <p>Did you mean?</p>
+            {% for candidate in candidates %}
+                <p> {{candidate}} </p>
+            {% endfor %}
+        </div>
+  </body>
+</html>
