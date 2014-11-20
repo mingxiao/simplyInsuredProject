@@ -2,9 +2,15 @@
 <html>
   <head>
     <title>Drug Coverage Finder</title>
+      <script src="/js/jquery-1.11.1.min.js" type="text/javascript" ></script>
+      <script language="JavaScript">
+        function sendPost(){
+            jQuery.post("http://www.ming-xiao-123.appspot.com/", {'drugName': "Cefaclor"});
+        }
+      </script>
   </head>
+
   <body>
-    <body>
       <table style="border: 1px solid black">
         <tbody>
           <tr>
@@ -24,7 +30,8 @@
         <div class="Bottom">
             <p>Did you mean?</p>
             {% for candidate in candidates %}
-                <p> {{candidate}} </p>
+                <p> <a href="http://www.ming-xiao-123.appspot.com/?drugName={{candidate}}" >{{candidate}}</a> </p>
+                <!--<p> <a href="javascript:sendPost()"> {{candidate}}</a> </p>-->
             {% endfor %}
         </div>
   </body>

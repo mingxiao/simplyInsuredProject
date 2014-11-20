@@ -10,6 +10,7 @@ class GoodRXAPICaller(object):
     _API_URL = 'https://api.goodrx.com/drug-search'
 
     def get_candidates(self, drugName):
+        drugName = urllib2.quote(drugName)
         signature = self._form_signature(drugName)
         req = urllib2.Request('{}?query={}&api_key={}&sig={}'.format(self._API_URL, drugName, self._API_KEY, signature))
         resp = urllib2.urlopen(req).read()

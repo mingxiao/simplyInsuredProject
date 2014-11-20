@@ -32,7 +32,10 @@ class MainHandler(webapp2.RequestHandler):
 
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('index.html')
-        self.response.write(template.render())
+        variables = {}
+        if self.request.get('drugName'):
+            variables['value'] = self.request.get('drugName')
+        self.response.write(template.render(variables))
         #self.response.write('Hello world!')
 
     def post(self):
